@@ -1,0 +1,5 @@
+node_modules
+db/
+database/
+.DS_Score
+git 
