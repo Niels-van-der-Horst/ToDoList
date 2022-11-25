@@ -1,3 +1,4 @@
+
 /* POST DATA to API */
 
 const postData = function (todo)  {
@@ -43,6 +44,10 @@ const deleteData = function (id)  {
       .then((response) => response.json())
       .then((data) => console.log(data));
 };
+
+
+
+/* PUT DATA (update) */
 
 const putData = function (id, todo)  {
     

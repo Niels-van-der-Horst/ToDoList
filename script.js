@@ -7,8 +7,8 @@ function addTask() {
     let taskValue = addInput.value;
 
     if (taskValue && taskValue.trim().length > 0) {
-        taskValue = taskValue.trim();
-       let todoItem = {description: taskValue, done: false};
+      taskValue = taskValue.trim();
+      let todoItem = {description: taskValue, done: false};
         
        postData(todoItem);
 
@@ -62,7 +62,7 @@ function deleteItem(id)
     } 
   };
 
-  /* -------------------- */
+/* -------------------- */
 /* create DOM content */
 
 function createTask(todo) {
@@ -109,7 +109,6 @@ function createTask(todo) {
           li.classList.toggle('li');
         }
     }
-    
     };
     
     window.addEventListener('load', (event) => {
