@@ -1,16 +1,18 @@
 
 /* POST DATA to API */
+const apiUrl  = 'http://localhost:3000/';
 
-const postData = function (todo)  {
-    fetch('http://localhost:3000/', {
+const postData = async function (todo)  {
+    const response = await fetch(apiUrl, {
         method: "POST",
         body: JSON.stringify(todo),
         headers: {
             "Content-Type": "application/json",
         },
       })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+      const data = await response.json();
+     
+      console.log('post', data);
 };
 
 
@@ -18,15 +20,18 @@ const postData = function (todo)  {
 
 /* GET DATA FROM API */
 
-const getTask = function() {
-    const response =  fetch('http://localhost:3000/', {
+const getTask = async function() {
+    const response = await fetch(apiUrl, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
         },
-        })
-        .then((response) => response.json())
-        .then((data) =>  createTask(data));
+        });
+
+        const data = await response.json();
+        createTask(data);
+        console.log('get task', data);
+
 
 };
 
@@ -34,32 +39,35 @@ const getTask = function() {
 
 /* DELETE DATA to API */
 
-const deleteData = function (id)  {
-    fetch('http://localhost:3000/' + id, {
+const deleteData = async function (id)  {
+   const response = await fetch(apiUrl + id, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         },
-      })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+      });
+
+      const data = await response;
+      console.log('delete', data);
+
 };
 
 
 
 /* PUT DATA (update) */
 
-const putData = function (id, todo)  {
+const putData = async function (id, todo)  {
     
-    fetch('http://localhost:3000/' + id, {
+    const response = await fetch(apiUrl + id, {
         method: "PUT",
         body: JSON.stringify(todo),
         headers: {
             "Content-Type": "application/json",
         },
-      })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+      });
+
+      const data = await response;
+      console.log('put', data);
 };
 
 

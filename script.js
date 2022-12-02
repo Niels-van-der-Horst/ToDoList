@@ -85,9 +85,7 @@ function createTask(todo) {
         checkbox.setAttribute("onclick","updateCheckbox(this.id)");
         checkbox.checked=todo[i].done;
     
-        
-    
-    
+  
         const trashcan = document.createElement('i');
         trashcan.classList.add('fa-solid', 'fa-trash-can');
         trashcan.id=todo[i]._id;
@@ -112,8 +110,8 @@ function createTask(todo) {
     };
     
     window.addEventListener('load', (event) => {
-        // console.log('page is fully loaded');
-        getTask();
-    
+         console.log('page is fully loaded');
+         event.preventDefault();
+         getTask();
       
       });
